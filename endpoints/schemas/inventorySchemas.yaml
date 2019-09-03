@@ -184,7 +184,7 @@ components:
                           type: string
                         rateCardName:
                           type: string
-			rateCardStartDate:
+                        rateCardStartDate:
                           type: string
                           format: date
                         rateCardEndDate:
