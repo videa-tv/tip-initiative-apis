@@ -184,6 +184,12 @@ components:
                           type: string
                         rateCardName:
                           type: string
+                        rateCardStartDate:
+                          type: string
+                          format: date
+                        rateCardEndDate:
+                          type: string
+                          format: date
                         baseLength:
                           type: string
                         isDefault:
