@@ -3,10 +3,10 @@ info:
   title: Commercial Instructions Schema
   version: 1.0.0
   description: Commercial Instructions Schema, Based on TIP 4.0 Working Draft
-  termsOfService: http://placeholderdomain.io/terms/,
+  termsOfService: http://placeholderdomain.io/terms/
   contact: 
     name: TIP Initiative
-    email: tip-mailing-list@tbd.com
+    email: tipinitiative@frontrowadvisory.com
     url: http://placeholderdomain.io
   license: 
     name: MIT
@@ -33,7 +33,7 @@ components:
           $ref: 'commonSchemas.yaml#/components/schemas/referenceIds'
         Buyer:
           $ref: 'commonSchemas.yaml#/components/schemas/Buyer'
-        contact:
+        Contact:
           $ref: 'commonSchemas.yaml#/components/schemas/Contact'
         Advertiser:
           $ref: 'commonSchemas.yaml#/components/schemas/Advertiser'
