@@ -79,13 +79,15 @@ components:
 # ----------------------------------------
     inventoryTypeEnum:
       type: string
-      enum: [Billboard, Piggyback, Booked, Sandwich, Custom]
+      enum: [Commercial, Makegood, Bonus, ADU, Bookend, Piggyback, Sponsorship, Donut, Sandwich, Billboard]
+    linkTypeEnum:
+      type: string
+      enum: [Bookend, Piggyback, Sandwich, Billboard]
 # --------------------------------------
     instructionDetailObject:
       type: object
       required:
         - actionType
-        - mediaOutlet
       properties:
         actionType:
           type: string
@@ -124,7 +126,7 @@ components:
           description: length in seconds
           type: integer
         linkType:
-          $ref: '#/components/schemas/inventoryTypeEnum'
+          $ref: '#/components/schemas/linkTypeEnum'
         linkNum:
           type: integer
         linkSeq:

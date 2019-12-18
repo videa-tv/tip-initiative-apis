@@ -16,25 +16,6 @@ paths: {} # no paths
 
 components:
   schemas:
-    logTimesBuyerObject: 
-        required:
-          - transactionHeader
-          - callbackUrl
-        properties:
-          transactionHeader:
-            $ref: 'commonSchemas.yaml#/components/schemas/transactionHeader'
-          callbackUrl:
-            description: URL the sellers system will POST the requested data to
-            type: string
-            format: uri
-          Comments:
-            description: Additional Information
-            type: string
-          logTimesMediaOutlets:
-            description: Media Outlet Details
-            type: array
-            items:
-              $ref: '#/components/schemas/logTimesMediaOutletQuery'
     logTimesSellerObject:
         required:
           - transactionHeader
@@ -53,16 +34,15 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Unit'
-          mediaOutletDetails:
+          childUnitDetails:
             description: Child unit details for footprint unit to support Audience Network, Diginet or other forms of "child" units
             type: array
             items:
-              $ref: '#/components/schemas/mediaOutletDetail'
-  
+              $ref: '#/components/schemas/childUnitDetails'
     Unit:
-      required: # TODO what does conditional mean for all the properities? Conditional based on what?
+      required: # TODO define what conditional means for all the properities.
         - unitId
-        - referenceId
+        - referenceIds
         - mediaOutlet
         - Advertiser
         - Product
@@ -72,14 +52,14 @@ components:
         unitId:
           description: Seller generated unique number for unit
           type: string
-        referenceId:
+        referenceIds:
           $ref: 'commonSchemas.yaml#/components/schemas/referenceIds'
         cpeCode: 
           $ref: 'commonSchemas.yaml#/components/schemas/cpeCode'
         mediaOutlet:
           $ref: 'commonSchemas.yaml#/components/schemas/mediaOutlet'
-        buyerLocation:
-          $ref: 'commonSchemas.yaml#/components/schemas/buyerLocation'
+        Buyer:
+          $ref: 'commonSchemas.yaml#/components/schemas/Buyer'
         Advertiser:
           $ref: 'commonSchemas.yaml#/components/schemas/Advertiser'
         Brand:
@@ -99,11 +79,11 @@ components:
         inventoryType:
           description: inventory Type associated to unit
           type: string
-          enum: [Commercial, Interstitial, Billboard, Custom] # TODO custom keyword
+          enum: [Commercial, Interstitial, Billboard]
         linkType:
           description: Linked unit type 
           type: string
-          enum: [Billboard, Piggyback, Bookend, Custom] # TODO custom keyword
+          enum: [Billboard, Piggyback, Bookend]
         linkNum:
           description: Linked unique number to communicate the association of two or more units that have been linked together; only valid when the units have a link type association
           type: integer
@@ -181,7 +161,7 @@ components:
         broadcastDate:
           $ref: 'commonSchemas.yaml#/components/schemas/broadcastDate'
 
-    LogTimeResponseResponse: # TODO stub response, needs to be defined
+    LogTimesResponse: # TODO stub response, needs to be defined
       description: Response data # TODO stub response, needs to be defined
       properties:
         transactionId:
